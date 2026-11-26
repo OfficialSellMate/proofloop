@@ -1,5 +1,5 @@
 /* =========================================================
-   ProofLoop — theme.css (v1.2)
+   ProofLoop — theme.css (v1.3)
    Shared design system. Every page links to this file.
    Mobile-first: base styles are for phones; larger screens
    are handled in the @media (min-width: 768px) blocks.
@@ -528,25 +528,4 @@ p { margin: 0 0 var(--space-4); }
 @media (min-width: 768px) {
   .auth-page { align-items: center; padding: var(--space-6) var(--space-4); }
 }
-.auth-card { width: 100%; max-width: 420px; }
-.auth-card h1 { font-size: 24px; }
-.label-row { display: flex; align-items: baseline; justify-content: space-between; gap: var(--space-3); }
-.label-row a { font-size: 14px; }
-.auth-footer { margin: var(--space-4) 0 0; text-align: center; color: var(--text-secondary); }
-
-/* ---------- 14. ACCESSIBILITY ---------- */
-.skip-link {                       /* appears when a keyboard user presses Tab */
-  position: absolute;
-  top: -100px;
-  left: var(--space-3);
-  z-index: 100;
-  padding: var(--space-2) var(--space-3);
-  font-weight: 600;
-  background: var(--bg-card);
-  border-radius: var(--radius-md);
-}
-.skip-link:focus { top: var(--space-3); }
-
-@media (prefers-reduced-motion: reduce) {
-  * { transition: none !important; }
-                      }
+.auth-card {
