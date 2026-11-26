@@ -1,0 +1,417 @@
+/* =========================================================
+   ProofLoop — theme.css (v1.1)
+   Shared design system. Every page links to this file.
+   Mobile-first: base styles are for phones; larger screens
+   are handled in the @media (min-width: 768px) blocks.
+   ========================================================= */
+
+/* ---------- 1. DESIGN TOKENS ----------
+   Change a value here and it updates everywhere. */
+:root {
+  /* Brand */
+  --color-primary: #2457F5;        /* Loop Blue: main buttons, links, active nav */
+  --color-primary-hover: #1B44C4;  /* darker blue for hover/pressed */
+  --color-primary-tint: #EAF0FF;   /* very light blue backgrounds */
+
+  /* Status colors (each has a tint background + a readable text color) */
+  --color-success: #12805C;
+  --color-success-tint: #E6F4EE;
+  --color-warning: #B7791F;
+  --color-warning-tint: #FDF3E1;
+  --color-warning-text: #8A5A12;   /* darker amber so small text is readable */
+  --color-danger: #C53030;
+  --color-danger-tint: #FCEAEA;
+  --color-neutral: #6B7280;
+  --color-neutral-tint: #F1F2F4;
+
+  /* Backgrounds and borders */
+  --bg-app: #F7F8FA;               /* page background */
+  --bg-card: #FFFFFF;              /* cards, sidebar, inputs */
+  --border: #E5E7EB;               /* light dividers and card borders */
+  --border-strong: #D1D5DB;        /* input borders */
+
+  /* Text */
+  --text-main: #111827;
+  --text-secondary: #4B5563;
+  --text-muted: #9CA3AF;           /* placeholders/disabled only; too light for body text */
+
+  /* Typography */
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+               Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  /* Spacing scale (multiples of 4px) */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+
+  /* Border radius */
+  --radius-md: 8px;                /* buttons, inputs */
+  --radius-lg: 12px;               /* cards */
+  --radius-pill: 999px;            /* status badges */
+
+  /* Misc */
+  --shadow-card: 0 1px 2px rgba(17, 24, 39, 0.05);
+  --tap-min: 44px;                 /* minimum touch target height */
+  --sidebar-width: 240px;
+  --bottom-nav-height: 64px;
+  --topbar-height: 56px;
+}
+
+/* ---------- 2. BASE ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 16px;                 /* 16px stops mobile browsers zooming into inputs */
+  line-height: 1.5;
+  color: var(--text-main);
+  background: var(--bg-app);
+}
+
+img, svg { max-width: 100%; }
+
+a { color: var(--color-primary); }
+a:hover { color: var(--color-primary-hover); }
+
+:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* ---------- 3. TYPOGRAPHY ---------- */
+h1, h2, h3, h4 {
+  margin: 0 0 var(--space-3);
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: var(--text-main);
+}
+h1 { font-size: 28px; font-weight: 700; }
+h2 { font-size: 22px; font-weight: 600; }
+h3 { font-size: 18px; font-weight: 600; }
+h4 { font-size: 16px; font-weight: 600; }
+
+p { margin: 0 0 var(--space-4); }
+
+.text-secondary { color: var(--text-secondary); }
+.text-small { font-size: 14px; }
+.text-caption { font-size: 12px; color: var(--text-secondary); }
+
+@media (min-width: 768px) {
+  h1 { font-size: 32px; }
+}
+
+/* ---------- 4. LAYOUT HELPERS ---------- */
+.page {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: var(--space-4);
+}
+@media (min-width: 768px) {
+  .page { padding: var(--space-6); }
+}
+
+.stack > * + * { margin-top: var(--space-4); }
+.section { margin-bottom: var(--space-6); }
+
+.grid { display: grid; gap: var(--space-4); }
+.grid-stats { grid-template-columns: repeat(2, 1fr); }   /* 2 columns on phones */
+.grid-cards { grid-template-columns: 1fr; }              /* 1 column on phones */
+@media (min-width: 768px) {
+  .grid-stats { grid-template-columns: repeat(3, 1fr); } /* 3 columns on desktop */
+  .grid-cards { grid-template-columns: repeat(2, 1fr); }
+}
+
+.row { display: flex; flex-wrap: wrap; gap: var(--space-3); align-items: center; }
+
+/* Show/hide by screen size */
+.only-mobile { display: block; }
+.only-desktop { display: none; }
+@media (min-width: 768px) {
+  .only-mobile { display: none; }
+  .only-desktop { display: block; }
+}
+
+/* ---------- 5. BUTTONS ---------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  min-height: var(--tap-min);
+  padding: 0 var(--space-4);
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  transition: background-color 0.12s, border-color 0.12s;
+}
+.btn-primary { background: var(--color-primary); color: #fff; }
+.btn-primary:hover { background: var(--color-primary-hover); color: #fff; }
+
+.btn-secondary {
+  background: var(--bg-card);
+  color: var(--text-main);
+  border-color: var(--border-strong);
+}
+.btn-secondary:hover { background: var(--bg-app); color: var(--text-main); }
+
+.btn-ghost { background: transparent; color: var(--color-primary); }
+.btn-ghost:hover { background: var(--color-primary-tint); color: var(--color-primary-hover); }
+
+.btn-danger {
+  background: transparent;
+  color: var(--color-danger);
+  border-color: #F3C5C5;
+}
+.btn-danger:hover { background: var(--color-danger-tint); color: var(--color-danger); }
+
+/* Small buttons keep the 44px touch target; only padding and font are smaller */
+.btn-sm { min-height: var(--tap-min); padding: 0 var(--space-3); font-size: 14px; }
+.btn-block { display: flex; width: 100%; }
+
+.btn:disabled, .btn[aria-disabled="true"] {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ---------- 6. CARDS ---------- */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-card);
+  padding: var(--space-4);
+}
+@media (min-width: 768px) {
+  .card { padding: var(--space-5); }
+}
+.card-title { font-size: 16px; font-weight: 600; margin: 0 0 var(--space-3); }
+
+/* Dashboard number cards */
+.stat-card { padding: var(--space-4); }
+.stat-label { font-size: 14px; color: var(--text-secondary); margin: 0 0 var(--space-1); }
+.stat-value { font-size: 28px; font-weight: 700; line-height: 1.2; margin: 0; }
+
+/* ---------- 7. STATUS BADGES ---------- */
+.badge {
+  display: inline-block;
+  padding: 2px var(--space-3);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.5;
+  white-space: nowrap;
+  border-radius: var(--radius-pill);
+}
+.badge-neutral { background: var(--color-neutral-tint); color: var(--text-secondary); }
+.badge-active  { background: var(--color-primary-tint); color: var(--color-primary-hover); }
+.badge-warning { background: var(--color-warning-tint); color: var(--color-warning-text); }
+.badge-success { background: var(--color-success-tint); color: var(--color-success); }
+.badge-danger  { background: var(--color-danger-tint);  color: var(--color-danger); }
+
+/* ---------- 8. FORMS ---------- */
+.form-group { margin-bottom: var(--space-4); }
+
+.label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.input, .select, .textarea {
+  display: block;
+  width: 100%;
+  min-height: var(--tap-min);
+  padding: 10px var(--space-3);
+  font-family: inherit;
+  font-size: 16px;
+  color: var(--text-main);
+  background: var(--bg-card);
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-md);
+}
+.textarea { min-height: 96px; resize: vertical; }
+.input::placeholder, .textarea::placeholder { color: var(--text-muted); }
+
+.input:focus, .select:focus, .textarea:focus {
+  outline: none;
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px var(--color-primary-tint);
+}
+
+.input.is-invalid, .select.is-invalid, .textarea.is-invalid {
+  border-color: var(--color-danger);
+}
+.field-hint  { margin: 6px 0 0; font-size: 14px; color: var(--text-secondary); }
+.field-error { margin: 6px 0 0; font-size: 14px; color: var(--color-danger); }
+
+/* ---------- 9. BRAND + NAVIGATION ---------- */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-main);
+  text-decoration: none;
+}
+.brand-mark {              /* simple blue square with a ring: the "loop" */
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  background: var(--color-primary);
+  border-radius: var(--radius-md);
+}
+.brand-mark::after {
+  content: "";
+  width: 12px;
+  height: 12px;
+  border: 2.5px solid #fff;
+  border-radius: 50%;
+}
+
+.nav-icon {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Page frame: phone = top bar + bottom tabs; desktop = left sidebar */
+.app-main { padding-bottom: calc(var(--bottom-nav-height) + env(safe-area-inset-bottom, 0px)); }
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  height: var(--topbar-height);
+  display: flex;
+  align-items: center;
+  padding: 0 var(--space-4);
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--border);
+}
+
+.sidebar { display: none; }
+
+.bottom-nav {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 10;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  min-height: var(--bottom-nav-height);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  background: var(--bg-card);
+  border-top: 1px solid var(--border);
+}
+.bottom-nav a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-decoration: none;
+}
+.bottom-nav a[aria-current="page"] { color: var(--color-primary); font-weight: 600; }
+
+.nav-link {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-height: var(--tap-min);
+  padding: 0 var(--space-3);
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-decoration: none;
+  border-radius: var(--radius-md);
+}
+.nav-link:hover { background: var(--bg-app); color: var(--text-main); }
+.nav-link[aria-current="page"] {
+  background: var(--color-primary-tint);
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+@media (min-width: 768px) {
+  .topbar, .bottom-nav { display: none; }
+  .app-main { margin-left: var(--sidebar-width); padding-bottom: 0; }
+  .sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-5);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: var(--sidebar-width);
+    padding: var(--space-5) var(--space-4);
+    background: var(--bg-card);
+    border-right: 1px solid var(--border);
+  }
+  .sidebar nav { display: flex; flex-direction: column; gap: var(--space-1); }
+  .sidebar-footer { margin-top: auto; }
+}
+
+/* ---------- 10. LISTS AND TABLES ----------
+   Phones: use .list-item cards. Desktop: use .table. */
+.list-item {
+  display: block;
+  padding: var(--space-4);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  color: inherit;
+  text-decoration: none;
+}
+.list-item + .list-item { margin-top: var(--space-3); }
+.list-item-title { margin: 0 0 var(--space-1); font-weight: 600; }
+.list-item-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-3);
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.table-wrap {
+  overflow-x: auto;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+}
+.table { width: 100%; border-collapse: collapse; font-size: 15px; }
+.table th, .table td {
+  padding: var(--space-3) var(--space-4);
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+.table th { font-size: 13px; font-weight: 600; color: var(--text-secondary); background: var(--bg-app); }
+.table tr:last-child td { border-bottom: none; }
+
+/* ---------- 11. ACCESSIBILITY ---------- */
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; }
+               }
