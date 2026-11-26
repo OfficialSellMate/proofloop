@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Acme brand identity — ProofLoop</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#2457F5">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/theme.css">
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="i-dashboard" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></symbol>
+    <symbol id="i-projects" viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></symbol>
+    <symbol id="i-clients" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><circle cx="17.5" cy="9" r="2.5"/><path d="M17 14.5a5 5 0 0 1 4.5 5.5"/></symbol>
+    <symbol id="i-settings" viewBox="0 0 24 24"><path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/></symbol>
+  </svg>
+
+  <aside class="sidebar">
+    <a class="brand" href="dashboard.html"><span class="brand-mark"></span>ProofLoop</a>
+    <nav aria-label="Main">
+      <a class="nav-link" href="dashboard.html"><svg class="nav-icon" aria-hidden="true" focusable="false"><use href="#i-dashboard"/></svg>Dashboard</a>
+      <a class="nav-link" href="projects.html" aria-current="page"><svg class="nav-icon" aria-hidden="true" focusable="false"><use href="#i-projects"/></svg>Projects</a>
+      <a class="nav-link" href="clients.html"><svg class="nav-icon" aria-hidden="true" focusable="false"><use href="#i-clients"/></svg>Clients</a>
+      <a class="nav-link" href="settings.html"><svg class="nav-icon" aria-hidden="true" focusable="false"><use href="#i-settings"/></svg>Settings</a>
+    </nav>
+    <div class="sidebar-footer">
+      <a class="btn btn-secondary btn-block" href="login.html">Sign out</a>
+    </div>
+  </aside>
+
+  <div class="app-main">
+
+    <header class="topbar">
+      <a class="brand" href="dashboard.html"><span class="brand-mark"></span>ProofLoop</a>
+    </header>
+
+    <main id="main" class="page">
+
+      <a class="back-link" href="projects.html">&larr; Projects</a>
+
+      <p class="notice" role="note">Sample data: this is an example project. Buttons and forms on this page do not work yet.</p>
+
+      <div class="page-header">
+        <div>
+          <h1>Acme brand identity</h1>
+          <p>Acme Co. &middot; <span class="badge badge-warning">Awaiting approval</span></p>
+        </div>
+        <button class="btn btn-secondary" type="button" aria-disabled="true">Edit project</button>
+      </div>
+
+      <!-- TABS -->
+      <div class="tabs" role="tablist" aria-label="Project sections">
+        <button class="tab" role="tab" type="button" id="tab-overview" aria-controls="panel-overview" aria-selected="true">Overview</button>
+        <button class="tab" role="tab" type="button" id="tab-deliverables" aria-controls="panel-deliverables" aria-selected="false" tabindex="-1">Deliverables</button>
+        <button class="tab" role="tab" type="button" id="tab-feedback" aria-controls="panel-feedback" aria-selected="false" tabindex="-1">Feedback &amp; approvals</button>
+        <button class="tab" role="tab" type="button" id="tab-changes" aria-controls="panel-changes" aria-selected="false" tabindex="-1">Changes</button>
+        <button class="tab" role="tab" type="button" id="tab-payments" aria-controls="panel-payments" aria-selected="false" tabindex="-1">Payments</button>
+        <button class="tab" role="tab" type="button" id="tab-share" aria-controls="panel-share" aria-selected="false" tabindex="-1">Share</button>
+      </div>
+
+      <!-- OVERVIEW -->
+      <div role="tabpanel" id="panel-overview" aria-labelledby="tab-overview">
+        <div class="grid grid-cards section">
+          <div class="card">
+            <h2 class="card-title">Progress</h2>
+            <div class="progress" role="progressbar" aria-label="Project progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50"><span style="width:50%"></span></div>
+            <p class="text-secondary text-small" style="margin:var(--space-2) 0 0">2 of 4 deliverables approved</p>
+          </div>
+          <div class="card">
+            <h2 class="card-title">Details</h2>
+            <dl class="detail-list">
+              <div><dt>Client</dt><dd>Acme Co.</dd></div>
+              <div><dt>Status</dt><dd>Awaiting approval</dd></div>
+              <div><dt>Start date</dt><dd>Oct 12</dd></div>
+              <div><dt>Delivery date</dt><dd>Nov 28</dd></div>
+              <div><dt>Budget</dt><dd>$1,800</dd></div>
+            </dl>
+          </div>
+        </div>
+        <div class="card section">
+          <h2 class="card-title">Description</h2>
+          <p class="text-secondary" style="margin:0">A full brand identity for Acme Co.: logo, color palette, typography and a short brand guidelines document, plus a small social media kit.</p>
+        </div>
+        <div class="grid grid-cards section">
+          <div class="card">
+            <h2 class="card-title">Included in scope</h2>
+            <ul class="feature-list">
+              <li>Logo design with 3 concepts and 2 revision rounds</li>
+              <li>Color palette and typography</li>
+              <li>Brand guidelines PDF</li>
+              <li>Social media kit</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h2 class="card-title">Not included</h2>
+            <ul class="feature-list is-excluded">
+              <li>Website design</li>
+              <li>Printing and production</li>
+              <li>Photography or illustration</li>
+              <li>Extra revision rounds</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- DELIVERABLES -->
+      <div role="tabpanel" id="panel-deliverables" aria-labelledby="tab-deliverables" hidden>
+        <div class="card section">
+          <h2 class="card-title">Deliverables</h2>
+          <ul class="item-list">
+            <li>
+              <div><p class="item-title">Logo concepts</p><p class="item-meta">Due Nov 14</p></div>
+              <div class="item-end"><span class="badge badge-success">Approved</span></div>
+            </li>
+            <li>
+              <div><p class="item-title">Color palette and typography</p><p class="item-meta">Due Nov 20</p></div>
+              <div class="item-end"><span class="badge badge-success">Approved</span></div>
+            </li>
+            <li>
+              <div><p class="item-title">Brand guidelines PDF</p><p class="item-meta">Due Nov 28</p></div>
+              <div class="item-end"><span class="badge badge-warning">Awaiting approval</span></div>
+            </li>
+            <li>
+              <div><p class="item-title">Social media kit</p><p class="item-meta">Due Nov 28</p></div>
+              <div class="item-end"><span class="badge badge-active">In progress</span></div>
+            </li>
+          </ul>
+        </div>
+        <button class="btn btn-secondary" type="button" aria-disabled="true">Add deliverable</button>
+      </div>
+
+      <!-- FEEDBACK AND APPROVALS -->
+      <div role="tabpanel" id="panel-feedback" aria-labelledby="tab-feedback" hidden>
+        <div class="grid grid-cards section">
+          <div class="card">
+            <h2 class="card-title">Approval requests</h2>
+            <ul class="item-list">
+              <li>
+                <div><p class="item-title">Brand guidelines PDF</p><p class="item-meta">Requested Nov 24</p></div>
+                <div class="item-end"><span class="badge badge-warning">Awaiting approval</span></div>
+              </li>
+            </ul>
+          </div>
+          <div class="card">
+            <h2 class="card-title">Client feedback</h2>
+            <ul class="item-list">
+              <li>
+                <div>
+                  <p class="item-title">Maya Collins &middot; Nov 25</p>
+                  <p class="item-meta">On Brand guidelines PDF: &ldquo;Could the green be a little darker on page 4?&rdquo;</p>
+                </div>
+                <div class="item-end"><span class="badge badge-warning">Revision requested</span></div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="card section">
+          <h2 class="card-title">Activity history</h2>
+          <ul class="item-list">
+            <li><div><p class="item-title">Logo concepts approved</p><p class="item-meta">Acme Co.</p></div><div class="item-end"><span class="item-meta">Nov 26</span></div></li>
+            <li><div><p class="item-title">Feedback received</p><p class="item-meta">Brand guidelines PDF</p></div><div class="item-end"><span class="item-meta">Nov 25</span></div></li>
+            <li><div><p class="item-title">Approval requested</p><p class="item-meta">Brand guidelines PDF</p></div><div class="item-end"><span class="item-meta">Nov 24</span></div></li>
+            <li><div><p class="item-title">Color palette and typography approved</p><p class="item-meta">Acme Co.</p></div><div class="item-end"><span class="item-meta">Nov 22</span></div></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- CHANGE REQUESTS -->
+      <div role="tabpanel" id="panel-changes" aria-labelledby="tab-changes" hidden>
+        <div class="card section">
+          <h2 class="card-title">Change requests</h2>
+          <ul class="item-list">
+            <li>
+              <div>
+                <p class="item-title">Business card design</p>
+                <p class="item-meta">Requested Nov 23 &middot; +$150 &middot; New delivery date Dec 4</p>
+              </div>
+              <div class="item-end"><span class="badge badge-warning">Awaiting client</span></div>
+            </li>
+            <li>
+              <div>
+                <p class="item-title">Extra logo color variation</p>
+                <p class="item-meta">Requested Nov 15 &middot; +$50 &middot; Delivery date unchanged</p>
+              </div>
+              <div class="item-end"><span class="badge badge-success">Accepted</span></div>
+            </li>
+          </ul>
+        </div>
+        <button class="btn btn-secondary" type="button" aria-disabled="true">Record a change request</button>
+      </div>
+
+      <!-- PAYMENTS -->
+      <div role="tabpanel" id="panel-payments" aria-labelledby="tab-payments" hidden>
+        <div class="grid grid-steps section">
+          <div class="card stat-card"><p class="stat-label">Budget</p><p class="stat-value">$1,800</p></div>
+          <div class="card stat-card"><p class="stat-label">Paid</p><p class="stat-value">$900</p></div>
+          <div class="card stat-card"><p class="stat-label">Outstanding</p><p class="stat-value">$900</p></div>
+        </div>
+        <div class="card section">
+          <h2 class="card-title">Payment history <span class="badge badge-warning">Partially paid</span></h2>
+          <ul class="item-list">
+            <li>
+              <div><p class="item-title">Deposit (50%)</p><p class="item-meta">Oct 12 &middot; Note: bank transfer</p></div>
+              <div class="item-end"><span class="item-title">$900</span></div>
+            </li>
+          </ul>
+        </div>
+        <p class="text-secondary text-small">ProofLoop keeps a record of payments you enter. It does not collect or process payments.</p>
+        <button class="btn btn-secondary" type="button" aria-disabled="true">Record a payment</button>
+      </div>
+
+      <!-- SHARE -->
+      <div role="tabpanel" id="panel-share" aria-labelledby="tab-share" hidden>
+        <p class="notice" role="note">The client page is not built yet. This tab shows the planned layout, and the link below is only an example.</p>
+        <div class="card section">
+          <h2 class="card-title">Client page link <span class="badge badge-success">Sharing on (example)</span></h2>
+          <p class="text-secondary text-small">Anyone with this link can view this project page. You can revoke the link at any time to stop access.</p>
+          <div class="form-group">
+            <label class="label" for="share-link">Private link</label>
+            <input class="input" id="share-link" type="text" value="https://example.com/p/sample-link-only" readonly>
+          </div>
+          <div class="row">
+            <button class="btn btn-primary" type="button" aria-disabled="true">Copy link</button>
+            <button class="btn btn-danger" type="button" aria-disabled="true">Revoke link</button>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <nav class="bottom-nav" aria-label="Main">
+    <a href="dashboard.html"><svg class="nav-icon" aria-hidden="true" focusable="false"><use href="#i-dashboard"/></svg>Dashboard</a>
+    <a href="projects.html" aria-current="page"><svg class="nav-icon" aria-hidden="true" focusable="false"><use href="#i-projects"/></svg>Projects</a>
+    <a href="clients.html"><svg class="nav-icon" aria-hidden="true" focusable="false"><use href="#i-clients"/></svg>Clients</a>
+    <a href="settings.html"><svg class="nav-icon" aria-hidden="true" focusable="false"><use href="#i-settings"/></svg>Settings</a>
+  </nav>
+
+  <!-- Tab switching: click a tab, or use the left/right arrow keys -->
+  <script>
+    (function () {
+      var tabs = [].slice.call(document.querySelectorAll('[role="tab"]'));
+
+      function selectTab(selected) {
+        tabs.forEach(function (tab) {
+          var isSelected = tab === selected;
+          tab.setAttribute('aria-selected', isSelected ? 'true' : 'false');
+          tab.tabIndex = isSelected ? 0 : -1;
+          document.getElementById(tab.getAttribute('aria-controls')).hidden = !isSelected;
+        });
+      }
+
+      tabs.forEach(function (tab, index) {
+        tab.addEventListener('click', function () { selectTab(tab); });
+        tab.addEventListener('keydown', function (event) {
+          var next = null;
+          if (event.key === 'ArrowRight') { next = tabs[(index + 1) % tabs.length]; }
+          if (event.key === 'ArrowLeft') { next = tabs[(index - 1 + tabs.length) % tabs.length]; }
+          if (next) {
+            event.preventDefault();
+            selectTab(next);
+            next.focus();
+          }
+        });
+      });
+    })();
+  </script>
+
+</body>
+                                                                                           </html>
