@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard — ProofLoop</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#2457F5">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/theme.css">
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <!-- Icon set: defined once, reused in both navigation bars -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="i-dashboard" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></symbol>
+    <symbol id="i-projects" viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></symbol>
+    <symbol id="i-clients" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><circle cx="17.5" cy="9" r="2.5"/><path d="M17 14.5a5 5 0 0 1 4.5 5.5"/></symbol>
+    <symbol id="i-settings" viewBox="0 0 24 24"><path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/></symbol>
+  </svg>
+
+  <!-- Desktop sidebar (hidden on phones) -->
+  <aside class="sidebar">
+    <a class="brand" href="dashboard.html"><span class="brand-mark"></span>ProofLoop</a>
+    <nav aria-label="Main">
+      <a class="nav-link" href="dashboard.html" aria-current="page"><svg class="nav-icon" aria-hidden="true" focusable="false"><use href="#i-dashboard"/></svg>Dashboard</a>
+      <a class="nav-link" href="projects.html"><svg class="nav-icon" aria-hidden="true" focusable="false"><use href="#i-projects"/></svg>Projects</a>
+      <a class="nav-link" href="clients.html"><svg class="nav-icon" aria-hidden="true" focusable="false"><use href="#i-clients"/></svg>Clients</a>
+      <a class="nav-link" href="settings.html"><svg class="nav-icon" aria-hidden="true" focusable="false"><use href="#i-settings"/></svg>Settings</a>
+    </nav>
+    <div class="sidebar-footer">
+      <a class="btn btn-secondary btn-block" href="login.html">Sign out</a>
+    </div>
+  </aside>
+
+  <div class="app-main">
+
+    <!-- Phone top bar (hidden on desktop) -->
+    <header class="topbar">
+      <a class="brand" href="dashboard.html"><span class="brand-mark"></span>ProofLoop</a>
+    </header>
+
+    <main id="main" class="page">
+
+      <p class="notice" role="note">Sample data: the numbers and names on this page are examples. Real data will appear once the database is connected.</p>
+
+      <div class="page-header">
+        <div>
+          <h1>Dashboard</h1>
+          <p>Here is what needs your attention.</p>
+        </div>
+        <!-- Not connected yet: project creation comes in a later step -->
+        <button class="btn btn-primary" type="button" aria-disabled="true">New project</button>
+      </div>
+
+      <!-- SUMMARY NUMBERS -->
+      <section class="section" aria-label="Summary">
+        <div class="grid grid-stats">
+          <div class="card stat-card"><p class="stat-label">Total projects</p><p class="stat-value">6</p></div>
+          <div class="card stat-card"><p class="stat-label">Active</p><p class="stat-value">4</p></div>
+          <div class="card stat-card"><p class="stat-label">Completed</p><p class="stat-value">2</p></div>
+          <div class="card stat-card"><p class="stat-label">Awaiting approval</p><p class="stat-value">2</p></div>
+          <div class="card stat-card"><p class="stat-label">Feedback to review</p><p class="stat-value">3</p></div>
+          <div class="card stat-card"><p class="stat-label">Due this week</p><p class="stat-value">1</p></div>
+        </div>
+      </section>
+
+      <!-- DEADLINES + ACTIVITY -->
+      <section class="section">
+        <div class="grid grid-cards">
+
+          <div class="card">
+            <h2 class="card-title">Upcoming deadlines</h2>
+            <ul class="item-list">
+              <li>
+                <div>
+                  <p class="item-title">Brand guidelines</p>
+                  <p class="item-meta">Acme Co. &middot; Sat, Nov 28</p>
+                </div>
+                <div class="item-end"><span class="badge badge-warning">2 days left</span></div>
+              </li>
+              <li>
+                <div>
+                  <p class="item-title">Homepage design</p>
+                  <p class="item-meta">Bloom Studio &middot; Fri, Dec 4</p>
+                </div>
+                <div class="item-end"><span class="badge badge-neutral">8 days left</span></div>
+              </li>
+              <li>
+                <div>
+                  <p class="item-title">Logo variations</p>
+                  <p class="item-meta">Juniper Ltd &middot; Fri, Dec 11</p>
+                </div>
+                <div class="item-end"><span class="badge badge-neutral">15 days left</span></div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h2 class="card-title">Recent activity</h2>
+            <ul class="item-list">
+              <li>
+                <div>
+                  <p class="item-title">Logo concepts approved</p>
+                  <p class="item-meta">Acme Co. approved the deliverable</p>
+                </div>
+                <div class="item-end"><span class="item-meta">2h ago</span></div>
+              </li>
+              <li>
+                <div>
+                  <p class="item-title">New feedback</p>
+                  <p class="item-meta">Bloom Studio commented on Homepage design</p>
+                </div>
+                <div class="item-end"><span class="item-meta">Yesterday</span></div>
+              </li>
+              <li>
+                <div>
+                  <p class="item-title">Change requested</p>
+                  <p class="item-meta">Bloom Studio asked for an extra page</p>
+                </div>
+                <div class="item-end"><span class="item-meta">2 days ago</span></div>
+              </li>
+              <li>
+                <div>
+                  <p class="item-title">Project page shared</p>
+                  <p class="item-meta">You shared Juniper logo refresh</p>
+                </div>
+                <div class="item-end"><span class="item-meta">3 days ago</span></div>
+              </li>
+            </ul>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- EMPTY STATE EXAMPLE: what a brand-new account will see instead of the lists above.
+           This block is for design review only and will be removed when real data is connected. -->
+      <section class="section">
+        <h2>New account preview</h2>
+        <div class="card empty-state">
+          <h3>No projects yet</h3>
+          <p>Create your first project to share a private page with a client.</p>
+          <button class="btn btn-primary" type="button" aria-disabled="true">Create project</button>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Phone bottom tab bar (hidden on desktop) -->
+  <nav class="bottom-nav" aria-label="Main">
+    <a href="dashboard.html" aria-current="page"><svg class="nav-icon" aria-hidden="true" focusable="false"><use href="#i-dashboard"/></svg>Dashboard</a>
+    <a href="projects.html"><svg class="nav-icon" aria-hidden="true" focusable="false"><use href="#i-projects"/></svg>Projects</a>
+    <a href="clients.html"><svg class="nav-icon" aria-hidden="true" focusable="false"><use href="#i-clients"/></svg>Clients</a>
+    <a href="settings.html"><svg class="nav-icon" aria-hidden="true" focusable="false"><use href="#i-settings"/></svg>Settings</a>
+  </nav>
+
+</body>
+                                                                                                                                                       </html>
