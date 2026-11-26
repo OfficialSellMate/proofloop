@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Clients — ProofLoop</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#2457F5">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/theme.css">
+</head>
+<body>
+
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="i-dashboard" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></symbol>
+    <symbol id="i-projects" viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></symbol>
+    <symbol id="i-clients" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><circle cx="17.5" cy="9" r="2.5"/><path d="M17 14.5a5 5 0 0 1 4.5 5.5"/></symbol>
+    <symbol id="i-settings" viewBox="0 0 24 24"><path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/></symbol>
+  </svg>
+
+  <aside class="sidebar">
+    <a class="brand" href="dashboard.html"><span class="brand-mark"></span>ProofLoop</a>
+    <nav aria-label="Main">
+      <a class="nav-link" href="dashboard.html"><svg class="nav-icon" aria-hidden="true" focusable="false"><use href="#i-dashboard"/></svg>Dashboard</a>
+      <a class="nav-link" href="projects.html"><svg class="nav-icon" aria-hidden="true" focusable="false"><use href="#i-projects"/></svg>Projects</a>
+      <a class="nav-link" href="clients.html" aria-current="page"><svg class="nav-icon" aria-hidden="true" focusable="false"><use href="#i-clients"/></svg>Clients</a>
+      <a class="nav-link" href="settings.html"><svg class="nav-icon" aria-hidden="true" focusable="false"><use href="#i-settings"/></svg>Settings</a>
+    </nav>
+    <div class="sidebar-footer">
+      <a class="btn btn-secondary btn-block" href="login.html">Sign out</a>
+    </div>
+  </aside>
+
+  <div class="app-main">
+
+    <header class="topbar">
+      <a class="brand" href="dashboard.html"><span class="brand-mark"></span>ProofLoop</a>
+    </header>
+
+    <main id="main" class="page">
+
+      <p class="notice" role="note">Sample data: these clients are examples. Search and saving do not work yet.</p>
+
+      <div class="page-header">
+        <div>
+          <h1>Clients</h1>
+          <p>The people and companies you work with.</p>
+        </div>
+        <a class="btn btn-primary" href="#add-client">Add client</a>
+      </div>
+
+      <form class="toolbar" role="search" onsubmit="return false" style="grid-template-columns:1fr">
+        <div>
+          <label class="visually-hidden" for="client-search">Search clients</label>
+          <input class="input" id="client-search" type="search" placeholder="Search clients">
+        </div>
+      </form>
+
+      <section class="section" aria-label="Client list">
+        <!-- Cards on phones -->
+        <div class="only-mobile">
+          <div class="list-item">
+            <p class="list-item-title">Acme Co.</p>
+            <div class="list-item-meta"><span>Maya Collins</span><span>1 project</span></div>
+          </div>
+          <div class="list-item">
+            <p class="list-item-title">Bloom Studio</p>
+            <div class="list-item-meta"><span>Daniel Reyes</span><span>1 project</span></div>
+          </div>
+          <div class="list-item">
+            <p class="list-item-title">Juniper Ltd</p>
+            <div class="list-item-meta"><span>Priya Shah</span><span>1 project</span></div>
+          </div>
+          <div class="list-item">
+            <p class="list-item-title">Northwind Foods</p>
+            <div class="list-item-meta"><span>Tom Becker</span><span>1 project</span></div>
+          </div>
+          <div class="list-item">
+            <p class="list-item-title">Harbor Cafe</p>
+            <div class="list-item-meta"><span>Lena Ortiz</span><span>1 project</span></div>
+          </div>
+          <div class="list-item">
+            <p class="list-item-title">Elm &amp; Oak</p>
+            <div class="list-item-meta"><span>James Whitfield</span><span>1 project</span></div>
+          </div>
+        </div>
+
+        <!-- Table on desktop -->
+        <div class="only-desktop">
+          <div class="table-wrap">
+            <table class="table">
+              <thead><tr><th>Client</th><th>Contact</th><th>Email</th><th>Projects</th></tr></thead>
+              <tbody>
+                <tr><td>Acme Co.</td><td>Maya Collins</td><td>maya@acme.example</td><td>1</td></tr>
+                <tr><td>Bloom Studio</td><td>Daniel Reyes</td><td>daniel@bloom.example</td><td>1</td></tr>
+                <tr><td>Juniper Ltd</td><td>Priya Shah</td><td>priya@juniper.example</td><td>1</td></tr>
+                <tr><td>Northwind Foods</td><td>Tom Becker</td><td>tom@northwind.example</td><td>1</td></tr>
+                <tr><td>Harbor Cafe</td><td>Lena Ortiz</td><td>lena@harbor.example</td><td>1</td></tr>
+                <tr><td>Elm &amp; Oak</td><td>James Whitfield</td><td>james@elmoak.example</td><td>1</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      <!-- ADD CLIENT FORM (layout preview only) -->
+      <section class="section" id="add-client">
+        <h2>Add a client</h2>
+        <div class="card">
+          <form onsubmit="return false">
+            <div class="form-grid">
+              <div class="form-group span-2">
+                <label class="label" for="ac-name">Client or company name</label>
+                <input class="input" id="ac-name" type="text" required>
+              </div>
+              <div class="form-group">
+                <label class="label" for="ac-contact">Contact person</label>
+                <input class="input" id="ac-contact" type="text" autocomplete="off">
+              </div>
+              <div class="form-group">
+                <label class="label" for="ac-email">Email</label>
+                <input class="input" id="ac-email" type="email" autocomplete="off" autocapitalize="none" spellcheck="false">
+              </div>
+              <div class="form-group">
+                <label class="label" for="ac-phone">Phone</label>
+                <input class="input" id="ac-phone" type="tel" autocomplete="off">
+              </div>
+              <div class="form-group"></div>
+              <div class="form-group span-2">
+                <label class="label" for="ac-notes">Notes</label>
+                <textarea class="textarea" id="ac-notes"></textarea>
+              </div>
+            </div>
+            <!-- Not connected yet -->
+            <button class="btn btn-primary" type="button" aria-disabled="true">Save client</button>
+          </form>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <nav class="bottom-nav" aria-label="Main">
+    <a href="dashboard.html"><svg class="nav-icon" aria-hidden="true" focusable="false"><use href="#i-dashboard"/></svg>Dashboard</a>
+    <a href="projects.html"><svg class="nav-icon" aria-hidden="true" focusable="false"><use href="#i-projects"/></svg>Projects</a>
+    <a href="clients.html" aria-current="page"><svg class="nav-icon" aria-hidden="true" focusable="false"><use href="#i-clients"/></svg>Clients</a>
+    <a href="settings.html"><svg class="nav-icon" aria-hidden="true" focusable="false"><use href="#i-settings"/></svg>Settings</a>
+  </nav>
+
+</body>
+  </html>
