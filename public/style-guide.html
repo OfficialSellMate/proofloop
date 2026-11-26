@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ProofLoop — Style Guide</title>
+
+  <!-- Inter font (free, from Google Fonts). Falls back to system fonts if offline. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/theme.css">
+
+  <style>
+    /* Page-specific styles for this demo page only */
+    .swatch-grid { display: grid; gap: var(--space-3); grid-template-columns: repeat(2, 1fr); }
+    @media (min-width: 768px) { .swatch-grid { grid-template-columns: repeat(4, 1fr); } }
+    .swatch { border: 1px solid var(--border); border-radius: var(--radius-md); overflow: hidden; background: var(--bg-card); }
+    .swatch-color { height: 48px; }
+    .swatch-info { padding: var(--space-2) var(--space-3); font-size: 13px; }
+    .swatch-info strong { display: block; font-size: 14px; }
+  </style>
+</head>
+<body>
+
+  <!-- Icon set: defined once, reused in both navigation bars -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <symbol id="i-dashboard" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></symbol>
+    <symbol id="i-projects" viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></symbol>
+    <symbol id="i-clients" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0"/><circle cx="17.5" cy="9" r="2.5"/><path d="M17 14.5a5 5 0 0 1 4.5 5.5"/></symbol>
+    <symbol id="i-settings" viewBox="0 0 24 24"><path d="M4 7h10M18 7h2M4 17h2M10 17h10"/><circle cx="16" cy="7" r="2"/><circle cx="8" cy="17" r="2"/></symbol>
+  </svg>
+
+  <!-- Desktop sidebar (hidden on phones) -->
+  <aside class="sidebar">
+    <a class="brand" href="#"><span class="brand-mark"></span>ProofLoop</a>
+    <nav aria-label="Main">
+      <a class="nav-link" href="#" aria-current="page"><svg class="nav-icon" aria-hidden="true" focusable="false"><use href="#i-dashboard"/></svg>Dashboard</a>
+      <a class="nav-link" href="#"><svg class="nav-icon" aria-hidden="true" focusable="false"><use href="#i-projects"/></svg>Projects</a>
+      <a class="nav-link" href="#"><svg class="nav-icon" aria-hidden="true" focusable="false"><use href="#i-clients"/></svg>Clients</a>
+      <a class="nav-link" href="#"><svg class="nav-icon" aria-hidden="true" focusable="false"><use href="#i-settings"/></svg>Settings</a>
+    </nav>
+    <div class="sidebar-footer">
+      <a class="btn btn-secondary btn-block" href="#">Sign out</a>
+    </div>
+  </aside>
+
+  <div class="app-main">
+
+    <!-- Phone top bar (hidden on desktop) -->
+    <header class="topbar">
+      <a class="brand" href="#"><span class="brand-mark"></span>ProofLoop</a>
+    </header>
+
+    <main class="page">
+
+      <div class="section">
+        <h1>Style guide</h1>
+        <p class="text-secondary">Every colour, button, card and form used across ProofLoop. Resize your browser, or open it on your phone, to see the layout change.</p>
+      </div>
+
+      <!-- COLOURS -->
+      <section class="section">
+        <h2>Colours</h2>
+        <div class="swatch-grid">
+          <div class="swatch"><div class="swatch-color" style="background:var(--color-primary)"></div><div class="swatch-info"><strong>Loop Blue</strong>#2457F5</div></div>
+          <div class="swatch"><div class="swatch-color" style="background:var(--color-primary-hover)"></div><div class="swatch-info"><strong>Blue hover</strong>#1B44C4</div></div>
+          <div class="swatch"><div class="swatch-color" style="background:var(--color-primary-tint)"></div><div class="swatch-info"><strong>Blue tint</strong>#EAF0FF</div></div>
+          <div class="swatch"><div class="swatch-color" style="background:var(--color-success)"></div><div class="swatch-info"><strong>Approved</strong>#12805C</div></div>
+          <div class="swatch"><div class="swatch-color" style="background:var(--color-warning)"></div><div class="swatch-info"><strong>Awaiting</strong>#B7791F</div></div>
+          <div class="swatch"><div class="swatch-color" style="background:var(--color-danger)"></div><div class="swatch-info"><strong>Attention</strong>#C53030</div></div>
+          <div class="swatch"><div class="swatch-color" style="background:var(--color-neutral)"></div><div class="swatch-info"><strong>Neutral</strong>#6B7280</div></div>
+          <div class="swatch"><div class="swatch-color" style="background:var(--bg-app)"></div><div class="swatch-info"><strong>App background</strong>#F7F8FA</div></div>
+          <div class="swatch"><div class="swatch-color" style="background:var(--text-main)"></div><div class="swatch-info"><strong>Text main</strong>#111827</div></div>
+          <div class="swatch"><div class="swatch-color" style="background:var(--text-secondary)"></div><div class="swatch-info"><strong>Text secondary</strong>#4B5563</div></div>
+          <div class="swatch"><div class="swatch-color" style="background:var(--text-muted)"></div><div class="swatch-info"><strong>Text muted</strong>#9CA3AF</div></div>
+          <div class="swatch"><div class="swatch-color" style="background:var(--border)"></div><div class="swatch-info"><strong>Border</strong>#E5E7EB</div></div>
+        </div>
+      </section>
+
+      <!-- TYPOGRAPHY -->
+      <section class="section">
+        <h2>Typography</h2>
+        <div class="card">
+          <h1>Heading 1: Client projects</h1>
+          <h2>Heading 2: Website redesign</h2>
+          <h3>Heading 3: Deliverables</h3>
+          <h4>Heading 4: Section label</h4>
+          <p>Body text (16px). ProofLoop helps freelancers share progress, collect feedback and get approvals in one clear place.</p>
+          <p class="text-secondary text-small">Small secondary text (14px) for supporting details.</p>
+          <p class="text-caption" style="margin:0">Caption text (12px) for timestamps and fine print.</p>
+        </div>
+      </section>
+
+      <!-- BUTTONS -->
+      <section class="section">
+        <h2>Buttons</h2>
+        <div class="card stack">
+          <div class="row">
+            <button class="btn btn-primary" type="button">Primary</button>
+            <button class="btn btn-secondary" type="button">Secondary</button>
+            <button class="btn btn-ghost" type="button">Ghost</button>
+            <button class="btn btn-danger" type="button">Delete</button>
+          </div>
+          <div class="row">
+            <button class="btn btn-primary btn-sm" type="button">Small</button>
+            <button class="btn btn-primary" type="button" disabled>Disabled</button>
+          </div>
+          <button class="btn btn-primary btn-block" type="button">Full-width button (good for phones)</button>
+        </div>
+      </section>
+
+      <!-- STATUS BADGES -->
+      <section class="section">
+        <h2>Status badges</h2>
+        <div class="card">
+          <div class="row">
+            <span class="badge badge-neutral">Draft</span>
+            <span class="badge badge-active">Active</span>
+            <span class="badge badge-warning">Awaiting approval</span>
+            <span class="badge badge-success">Approved</span>
+            <span class="badge badge-danger">Overdue</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- CARDS -->
+      <section class="section">
+        <h2>Cards</h2>
+        <div class="grid grid-stats" style="margin-bottom:var(--space-4)">
+          <div class="card stat-card"><p class="stat-label">Total projects</p><p class="stat-value">12</p></div>
+          <div class="card stat-card"><p class="stat-label">Active</p><p class="stat-value">5</p></div>
+          <div class="card stat-card"><p class="stat-label">Completed</p><p class="stat-value">7</p></div>
+          <div class="card stat-card"><p class="stat-label">Awaiting approval</p><p class="stat-value">2</p></div>
+          <div class="card stat-card"><p class="stat-label">Feedback to review</p><p class="stat-value">3</p></div>
+          <div class="card stat-card"><p class="stat-label">Due this week</p><p class="stat-value">1</p></div>
+        </div>
+        <div class="grid grid-cards">
+          <div class="card">
+            <h3 class="card-title">Upcoming deadlines</h3>
+            <p class="text-secondary text-small" style="margin:0">Sample card content. Cards stack in one column on phones and sit in two columns on desktop.</p>
+          </div>
+          <div class="card">
+            <h3 class="card-title">Recent activity</h3>
+            <p class="text-secondary text-small" style="margin:0">Sample card content. All numbers on this page are sample data.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- FORMS -->
+      <section class="section">
+        <h2>Forms</h2>
+        <div class="card">
+          <form onsubmit="return false" novalidate>
+            <div class="form-group">
+              <label class="label" for="sg-name">Project title</label>
+              <input class="input" id="sg-name" type="text" placeholder="e.g. Brand identity for Acme">
+              <p class="field-hint">Clients will see this on their portal page.</p>
+            </div>
+            <div class="form-group">
+              <label class="label" for="sg-email">Client email</label>
+              <input class="input is-invalid" id="sg-email" type="email" value="not-an-email" aria-invalid="true" aria-describedby="sg-email-error">
+              <p class="field-error" id="sg-email-error">Please enter a valid email address.</p>
+            </div>
+            <div class="form-group">
+              <label class="label" for="sg-status">Status</label>
+              <select class="select" id="sg-status">
+                <option>Draft</option>
+                <option>Active</option>
+                <option>Awaiting approval</option>
+                <option>Completed</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="label" for="sg-notes">Scope notes</label>
+              <textarea class="textarea" id="sg-notes" placeholder="What is included and excluded?"></textarea>
+            </div>
+            <button class="btn btn-primary btn-block" type="button">Save project</button>
+          </form>
+        </div>
+      </section>
+
+      <!-- RESPONSIVE LIST -->
+      <section class="section">
+        <h2>Lists on phone vs desktop</h2>
+        <p class="text-secondary text-small">Phones show cards. Wider screens show a table.</p>
+
+        <div class="only-mobile">
+          <a class="list-item" href="#">
+            <p class="list-item-title">Acme brand identity</p>
+            <div class="list-item-meta"><span>Acme Co.</span><span class="badge badge-warning">Awaiting approval</span></div>
+          </a>
+          <a class="list-item" href="#">
+            <p class="list-item-title">Bloom Studio website</p>
+            <div class="list-item-meta"><span>Bloom Studio</span><span class="badge badge-active">Active</span></div>
+          </a>
+          <a class="list-item" href="#">
+            <p class="list-item-title">Juniper logo refresh</p>
+            <div class="list-item-meta"><span>Juniper Ltd</span><span class="badge badge-success">Approved</span></div>
+          </a>
+        </div>
+
+        <div class="only-desktop">
+          <div class="table-wrap">
+            <table class="table">
+              <thead><tr><th>Project</th><th>Client</th><th>Due</th><th>Status</th></tr></thead>
+              <tbody>
+                <tr><td>Acme brand identity</td><td>Acme Co.</td><td>12 Dec</td><td><span class="badge badge-warning">Awaiting approval</span></td></tr>
+                <tr><td>Bloom Studio website</td><td>Bloom Studio</td><td>20 Dec</td><td><span class="badge badge-active">Active</span></td></tr>
+                <tr><td>Juniper logo refresh</td><td>Juniper Ltd</td><td>2 Dec</td><td><span class="badge badge-success">Approved</span></td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- Phone bottom tab bar (hidden on desktop) -->
+  <nav class="bottom-nav" aria-label="Main">
+    <a href="#" aria-current="page"><svg class="nav-icon" aria-hidden="true" focusable="false"><use href="#i-dashboard"/></svg>Dashboard</a>
+    <a href="#"><svg class="nav-icon" aria-hidden="true" focusable="false"><use href="#i-projects"/></svg>Projects</a>
+    <a href="#"><svg class="nav-icon" aria-hidden="true" focusable="false"><use href="#i-clients"/></svg>Clients</a>
+    <a href="#"><svg class="nav-icon" aria-hidden="true" focusable="false"><use href="#i-settings"/></svg>Settings</a>
+  </nav>
+
+</body>
+                                </html>
